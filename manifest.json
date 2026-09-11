@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "LumiBoard - Visual Bookmark Manager",
+  "version": "6.1.0",
+  "description": "Visual bookmark dashboard with boards, folders, wallpapers, Chrome bookmark storage, and a Ctrl+Shift+X quick-save shortcut.",
+  "permissions": [
+    "bookmarks",
+    "storage",
+    "tabs"
+  ],
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+  "action": {
+    "default_title": "LumiBoard"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "commands": {
+    "quick-save": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+X",
+        "mac": "MacCtrl+Shift+X"
+      },
+      "description": "Save the current website to LumiBoard Quick Saves"
+    }
+  }
+}

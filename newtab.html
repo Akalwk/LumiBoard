@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LumiBoard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="backdrop"></div>
+
+<header class="topbar">
+  <div class="brand">LumiBoard</div>
+  <nav id="boards" class="boards"></nav>
+  <button id="addBoard" class="topPlus" title="Add board">＋</button>
+  <button id="topBookmark" class="topAction">＋ Bookmark</button>
+</header>
+
+<main>
+  <div class="boardRow">
+    <button id="addFolder" class="addBoardBox">⊕ &nbsp; ADD FOLDER</button>
+    <div id="breadcrumb" class="breadcrumb"></div>
+  </div>
+
+  <div id="cards" class="cards"></div>
+
+  <div id="empty" class="empty hidden">
+    <div class="emptyIcon">🔖</div>
+    <h2>No bookmarks yet</h2>
+    <p>Add as many bookmarks as you need, or create a folder to organize them.</p>
+    <div>
+      <button id="emptyBookmark" class="bright">＋ Add Bookmark</button>
+      <button id="emptyFolder">＋ Add Folder</button>
+    </div>
+  </div>
+</main>
+
+<aside class="sideTools">
+  <button id="searchButton" title="Search">⌕</button>
+  <button id="saveTab" title="Save current tab">⇩</button>
+  <button id="refreshButton" title="Refresh bookmarks">↻</button>
+  <button id="layoutButton" title="Compact layout">▦</button>
+  <button id="settingsButton" class="settings" title="Settings">⚙</button>
+</aside>
+
+<button id="wallpaperButton" class="wallpaperButton" title="Wallpaper">▧</button>
+
+<footer>LumiBoard · Visual Bookmark Manager</footer>
+
+<section id="searchBox" class="searchBox hidden">
+  <input id="searchInput" autocomplete="off" placeholder="Search all bookmarks…">
+  <button id="closeSearch">×</button>
+</section>
+
+<dialog id="bookmarkDialog">
+<form id="bookmarkForm">
+  <h2 id="bookmarkDialogTitle">Add Bookmark</h2>
+  <input id="bookmarkId" type="hidden">
+  <label>Title
+    <input id="bookmarkTitle" required>
+  </label>
+  <label>URL
+    <input id="bookmarkUrl" type="url" required placeholder="https://example.com">
+  </label>
+  <label>Folder
+    <select id="bookmarkFolder"></select>
+  </label>
+  <div class="dialogButtons">
+    <button type="button" id="deleteBookmark" class="danger hidden">Delete</button>
+    <span></span>
+    <button type="button" data-close="bookmarkDialog">Cancel</button>
+    <button class="bright">Save</button>
+  </div>
+</form>
+</dialog>
+
+<dialog id="folderDialog">
+<form id="folderForm">
+  <h2 id="folderDialogTitle">Add Folder</h2>
+  <input id="folderId" type="hidden">
+  <label>Folder name
+    <input id="folderName" required placeholder="Social Media">
+  </label>
+  <label>Parent folder
+    <select id="folderParent"></select>
+  </label>
+  <div class="dialogButtons">
+    <button type="button" id="deleteFolder" class="danger hidden">Delete</button>
+    <span></span>
+    <button type="button" data-close="folderDialog">Cancel</button>
+    <button class="bright">Save</button>
+  </div>
+</form>
+</dialog>
+
+<dialog id="settingsDialog">
+<form id="settingsForm">
+  <h2>Customize LumiBoard</h2>
+  <label>Wallpaper
+    <input id="wallpaperFile" type="file" accept="image/*">
+  </label>
+  <div id="wallpaperPreview"></div>
+  <div class="dialogButtons">
+    <button type="button" id="removeWallpaper">Remove wallpaper</button>
+  </div>
+  <label class="check">
+    <input id="darkMode" type="checkbox"> Dark overlay
+  </label>
+  <div class="dialogButtons">
+    <button type="button" id="exportBookmarks">Export bookmarks</button>
+    <button type="button" id="openChromeBookmarks">Open Chrome bookmarks</button>
+  </div>
+  <div class="dialogButtons">
+    <span></span>
+    <button type="button" data-close="settingsDialog">Cancel</button>
+    <button class="bright">Apply</button>
+  </div>
+</form>
+</dialog>
+
+<div id="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>
